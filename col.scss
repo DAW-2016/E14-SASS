@@ -1,0 +1,35 @@
+$col-size: percentage(1/16);
+
+.col {
+  float: left;
+  box-sizing: border-box;
+}
+
+@mixin col-new($i) {
+  width: $col-size * $i;
+      margin-left: auto;
+      left: auto;
+      right: auto;
+}
+
+@for $i from 1 to 17 {
+    .col.s#{$i}{
+      @include col-new($i);
+    }
+}
+
+@media only screen and (min-width: 650px){
+  @for $i from 1 to 17 {
+    .col.m#{$i}{
+      @include col-new($i);
+    }
+  }
+}
+
+@media only screen and (min-width: 1200px){
+  @for $i from 1 to 17 {
+    .col.l#{$i}{
+      @include col-new($i);
+    }
+  }
+}
