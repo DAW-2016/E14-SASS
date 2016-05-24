@@ -1,4 +1,4 @@
-## JavaScript & HTML DOM: Exercícios - Funções de Alta Ordem
+## SASS/SCSS
 
 **Desenvolvimento de Aplicações Web - COLTEC/MG**
 
