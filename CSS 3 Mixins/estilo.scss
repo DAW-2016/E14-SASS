@@ -1,0 +1,55 @@
+
+@mixin new-transform($type, $a, $b){
+
+  transform: #{$type}unquote("(#{$a, $b})");
+  -webkit-transform: #{$type}unquote("(#{$a, $b})");
+  -ms-transform: #{$type}unquote("(#{$a, $b})");
+}
+
+@mixin new-transition($a, $b){
+  transition: width #{$a}s, height #{$b}s;
+  -webkit-transition: width #{$a}s, height #{$b}s;
+  -ms-transition: width #{$a}s, height #{$b}s;
+}
+
+@mixin new-animation($animation, $color1, $color2){
+
+  @keyframes #{$animation} {
+    from {background: $color1;}
+    to {background: $color2;}
+  }
+  @-webkit-keyframes #{$animation} {
+    from {background: $color1;}
+    to {background: $color2;}
+  }
+}
+
+@mixin include-animation($animation, $time){
+
+  animation: $animation #{$time}s;
+  animation-iteration-count: infinite;
+  -webkit-animation: $animation #{$time}s;
+  -webkit-animation-iteration-count: infinite;
+}
+
+@mixin new-gradial($orientation, $form, $color1, $color2){
+
+  background: radial-gradient unquote("(#{$orientation, $form, $color1, $color2})");
+  background: -webkit-radial-gradient unquote("(#{$orientation, $form, $color1, $color2})");
+  background: -o-radial-gradient unquote("(#{$orientation, $form, $color1, $color2})");
+  background: -moz-radial-gradient unquote("(#{$orientation, $form, $color1, $color2})");
+
+}
+
+
+@include new-animation(first, red, blue);
+
+a {
+  @include new-transform(translate, 10px, 15px);
+
+  @include new-transition(10, 15);
+
+  @include include-animation(first, 5);
+
+  @include new-gradial(center, circle cover, red, #000 73%);
+}

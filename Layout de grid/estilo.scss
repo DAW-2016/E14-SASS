@@ -1,0 +1,34 @@
+$tamanho: percentage(1/16);
+
+.col{
+  float:left;
+}
+
+@mixin col-new($i){
+  width: $tamanho * $i;
+}
+
+@for $i from 1 to 3{
+  .col.g#{$i}{
+    @include col-new($i* 8);
+  }
+}
+
+
+
+@media screen and (min-width: 1200px){
+
+  @for $i from 1 to 17{
+    .col.g#{$i}{
+      @include col-new($i);
+    }
+  }
+}
+
+@media screen and (min-width: 650px){
+  @for $i from 1 to 9{
+    .col.m#{$i}{
+      @include col-new($i * 2);
+    }
+  }
+}
